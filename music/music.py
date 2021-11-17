@@ -671,7 +671,7 @@ class Music(commands.Cog, name="music"):
                     raise Failure(ctx, "There's no songs in the queue!")
                 if ctx.channel.permissions_for(ctx.guild.me).add_reactions:
                     try:
-                        return await ctx.message.add_reaction("👌")
+                        return await ctx.message.add_reaction("🎵")
                     except discord.HTTPException:
                         logger.debug("Failed to add reaction")
             elif player.paused:
@@ -836,7 +836,7 @@ class Music(commands.Cog, name="music"):
         if was_playing:
             if ctx.channel.permissions_for(ctx.guild.me).add_reactions:
                 try:
-                    return await ctx.message.add_reaction("👌")
+                    return await ctx.message.add_reaction("🎵")
                 except discord.HTTPException:
                     logger.debug("Failed to add reaction")
             return await ctx.send('Skipped!')
@@ -858,7 +858,7 @@ class Music(commands.Cog, name="music"):
         if await player.play_previous():
             if ctx.channel.permissions_for(ctx.guild.me).add_reactions:
                 try:
-                    return await ctx.message.add_reaction("👌")
+                    return await ctx.message.add_reaction("🎵")
                 except discord.HTTPException:
                     logger.debug("Failed to add reaction")
             return await ctx.send('Backed!')
@@ -882,7 +882,7 @@ class Music(commands.Cog, name="music"):
             await self.connect_to(ctx.guild.id, ctx.author.voice.channel.id)
         if ctx.channel.permissions_for(ctx.guild.me).add_reactions:
             try:
-                return await ctx.message.add_reaction("👌")
+                return await ctx.message.add_reaction("🎵")
             except discord.HTTPException:
                 logger.debug("Failed to add reaction")
         return await ctx.send('Joined!')
@@ -897,7 +897,7 @@ class Music(commands.Cog, name="music"):
         await player.queue.clear()
         if ctx.channel.permissions_for(ctx.guild.me).add_reactions:
             try:
-                return await ctx.message.add_reaction("👌")
+                return await ctx.message.add_reaction("🎵")
             except discord.HTTPException:
                 logger.debug("Failed to add reaction")
         return await ctx.send(f'{ctx.author.mention} cleared the queue!')
@@ -1021,7 +1021,7 @@ class Music(commands.Cog, name="music"):
         track, new_pos = resp
         if ctx.channel.permissions_for(ctx.guild.me).add_reactions:
             try:
-                return await ctx.message.add_reaction("👌")
+                return await ctx.message.add_reaction("🎵")
             except discord.HTTPException:
                 logger.debug("Failed to add reaction")
         embed = discord.Embed(
@@ -1145,7 +1145,7 @@ class Music(commands.Cog, name="music"):
             await player.seek(timestamp)
         if ctx.channel.permissions_for(ctx.guild.me).add_reactions:
             try:
-                return await ctx.message.add_reaction("👌")
+                return await ctx.message.add_reaction("🎵")
             except discord.HTTPException:
                 logger.debug("Failed to add reaction")
         await ctx.send("Seeked!")
